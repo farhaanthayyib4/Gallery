@@ -23,6 +23,80 @@ Validate the HTML and CSS code.
 Publish the website in the given URL.
 
 # PROGRAM :
+urls.py
+```
+from Django.urls import path
+
+from .views import image_view
+
+
+
+urlpatterns = [
+
+    path('images/', image_view, name='image_view'),
+
+]
+```
+vies.py
+```
+from django.shortcuts import render
+
+def image_view(request):
+    return render(request, 'images.html')
+```
+html code
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Multiple Images Enlarge on Click</title>
+<style>
+  .clickable-image {
+    width: 300px;
+    height: auto;
+    margin: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .enlarged {
+    transform: scale(2);
+    z-index: 10;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+<img class="clickable-image" src="c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2025-12-17 161827.png" alt="Image 1" />
+<img class="clickable-image" src="c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2025-12-17 161924.png" alt="Image 2" />
+<img class="clickable-image" src="c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2025-12-17 162049.png" alt="Image 3" />
+<img class="clickable-image" src="c:\Users\acer\OneDrive\Pictures\Screenshots\Screenshot 2025-12-17 162236.png" alt="Image 4" />
+
+<script>
+  const images = document.querySelectorAll('.clickable-image');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      img.classList.toggle('enlarged');
+    });
+  });
+</script>
+
+</body>
+</html>
+```
 # OUTPUT:
+<img width="1920" height="1080" alt="Screenshot 2025-12-17 162753" src="https://github.com/user-attachments/assets/737ba6e0-6cd9-407e-b050-dee93993ab05" />
+<img width="1920" height="1080" alt="Screenshot 2025-12-17 162810" src="https://github.com/user-attachments/assets/ad2743f2-5e84-4ed3-aaef-905d8fcc414a" />
+<img width="1920" height="1080" alt="Screenshot 2025-12-17 162827" src="https://github.com/user-attachments/assets/e93615f7-8952-46bb-bc01-387d6f3f5fa0" />
+<img width="1920" height="1080" alt="Screenshot 2025-12-17 162841" src="https://github.com/user-attachments/assets/3194731e-bed9-4235-b72b-44bfbb0a1f92" />
+<img width="1920" height="1080" alt="Screenshot 2025-12-17 162849" src="https://github.com/user-attachments/assets/28a2f869-774d-4411-93dd-bba36634716f" />
+
+
+
+
+
 # RESULT:
 The program for designing an interactive image gallery using HTML, CSS and JavaScript is executed successfully.
